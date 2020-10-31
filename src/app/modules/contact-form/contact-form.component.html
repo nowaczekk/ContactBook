@@ -1,0 +1,41 @@
+<p>contact-form works!</p>
+<form [formGroup]="contactForm">
+    <label>
+        <span>
+            First Name:
+        </span>
+        <input type="text" formControlName="firstName">
+    </label>
+
+    <label>
+        <span>
+            Laste Name:
+        </span>
+        <input type="text" formControlName="lastName">
+    </label>
+
+    <label>
+        <span>
+            Phone:
+        </span>
+        <input type="text" formControlName="phone">
+    </label>
+
+    <label>
+        <span>
+            Eamil:
+        </span>
+        <input type="text" formControlName="email">
+    </label>
+
+    <label>
+        <span>
+            Address:
+        </span>
+        <input type="text" formControlName="address">
+    </label>
+
+    <button (click)="onSave()">
+    Save
+    </button>
+</form>
