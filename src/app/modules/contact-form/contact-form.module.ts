@@ -3,8 +3,6 @@ import { CommonModule } from '@angular/common';
 import { ContactFormComponent } from './contact-form.component';
 import { ReactiveFormsModule } from '@angular/forms';
 
-
-
 @NgModule({
   declarations: [ContactFormComponent],
   imports: [
