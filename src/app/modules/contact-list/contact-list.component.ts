@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
 import { ContactModel } from 'src/app/shared/models/contact.model';
+import { Contact } from 'src/app/shared/store/models/contact.model';
 
 @Component({
   selector: 'app-contact-list',
@@ -7,8 +9,7 @@ import { ContactModel } from 'src/app/shared/models/contact.model';
   styleUrls: ['./contact-list.component.scss']
 })
 export class ContactListComponent implements OnInit {
-
-  data: Array<ContactModel> = [];
+  @Input() contacts$: Observable<Array<Contact>>;
 
   constructor() { }
 

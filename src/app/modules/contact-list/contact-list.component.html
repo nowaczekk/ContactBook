@@ -8,8 +8,8 @@
         </span>
     </div>
     <div class="list-content-container">
-        <div *ngFor="let item of data">
-            {{item.FirstName}}, {{item.LastName}}
+        <div *ngFor="let item of contacts$ | async">
+            {{item.firstName}}, {{item.lastName}}
         </div>
 
     </div>

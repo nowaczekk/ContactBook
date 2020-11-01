@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
+import { Store } from '@ngrx/store';
+import { AddContactAction } from 'src/app/shared/store/actions/contact.actions';
+import { AppState } from 'src/app/shared/store/models/app-state.model';
 
 @Component({
   selector: 'app-contact-form',
@@ -9,7 +12,7 @@ import { FormControl, FormGroup } from '@angular/forms';
 export class ContactFormComponent implements OnInit {
   contactForm: FormGroup
 
-  constructor() { }
+  constructor(private store: Store<AppState>) {}
 
   ngOnInit(): void {
     this.contactForm = new FormGroup({
@@ -22,7 +25,9 @@ export class ContactFormComponent implements OnInit {
   }
 
   onSave(): void {
-    // ToDo: ready to save on state/db
+    const model = this.contactForm.value;
+
+    this.store.dispatch( new AddContactAction(model));
   }
 
 }

@@ -5,6 +5,9 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ContactFormModule } from './modules/contact-form/contact-form.module';
 import { ContactListModule } from './modules/contact-list/contact-list.module';
+import { StoreModule } from '@ngrx/store';
+import { ContactReducer } from './shared/store/reducers/contact.reducer';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -13,6 +16,10 @@ import { ContactListModule } from './modules/contact-list/contact-list.module';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    FormsModule,
+    StoreModule.forRoot({
+      contacts: ContactReducer
+    }),
     ContactFormModule,
     ContactListModule
   ],
