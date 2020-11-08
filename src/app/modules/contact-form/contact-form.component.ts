@@ -3,6 +3,7 @@ import { FormControl, FormGroup } from '@angular/forms';
 import { Store } from '@ngrx/store';
 import { AddContactAction } from 'src/app/shared/store/actions/contact.actions';
 import { AppState } from 'src/app/shared/store/models/app-state.model';
+import * as uuid from 'uuid';
 
 @Component({
   selector: 'app-contact-form',
@@ -26,8 +27,10 @@ export class ContactFormComponent implements OnInit {
 
   onSave(): void {
     const model = this.contactForm.value;
+    model.id = uuid.v4();
 
-    this.store.dispatch( new AddContactAction(model));
+    this.store.dispatch(new AddContactAction(model));
+    this.contactForm.reset();
   }
 
 }

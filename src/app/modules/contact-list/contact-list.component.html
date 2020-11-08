@@ -9,9 +9,10 @@
     </div>
     <div class="list-content-container">
         <div *ngFor="let item of contacts$ | async">
-            {{item.firstName}}, {{item.lastName}}
-        </div>
+            {{item.firstName}}, {{item.lastName}}, {{item.id}}
 
+            <button (click)="onSelect(item.id)">select</button>
+        </div>
     </div>
 
 </div>
