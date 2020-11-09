@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { combineLatest, Observable } from 'rxjs';
-import { AppState, getItemById } from 'src/app/shared/store/models/app-state.model';
+import { Observable } from 'rxjs';
+import { AppState, getSelectedContact } from 'src/app/shared/store/models/app-state.model';
 import { Contact } from 'src/app/shared/store/models/contact.model';
 
 @Component({
@@ -10,10 +10,12 @@ import { Contact } from 'src/app/shared/store/models/contact.model';
   styleUrls: ['./contact-details.component.scss']
 })
 export class ContactDetailsComponent implements OnInit {
-  contact$: Observable<Contact>
+  contact$: Observable<Contact>;
 
   constructor(private store: Store<AppState>) { }
 
-  ngOnInit() {  }
+  ngOnInit() { 
+    this.contact$ = this.store.select(getSelectedContact);
+   }
 
 }

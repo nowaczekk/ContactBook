@@ -2,10 +2,17 @@ import { createSelector } from '@ngrx/store';
 import { Contact } from './contact.model';
 
 export interface AppState {
-    readonly contacts: Array<Contact>;
+    readonly contacts: Contact[];
     readonly selectedContactId: string | null;
 }
 
-export const getItems = (state: AppState) => state.contacts;
+export const selectContacts = (state: AppState) => state.contacts
+export const selectSelectedContactId = (state: AppState) => state.selectedContactId
 
-export const getItemById = (id) => createSelector(getItems, (items) => items[id])
+export const getSelectedContact = createSelector(selectContacts, selectSelectedContactId, (contacts: Contact[], selectedUserId: string) => {
+    if(selectedUserId && contacts.length){
+        return contacts.find((contact) => contact.id === selectedUserId)
+    } else {
+        return null
+    }
+})

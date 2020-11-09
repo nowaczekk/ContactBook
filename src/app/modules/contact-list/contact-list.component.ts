@@ -1,9 +1,8 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
-import { ContactModel } from 'src/app/shared/models/contact.model';
 import { SelectContactAction } from 'src/app/shared/store/actions/selected-contact.actions';
-import { AppState, getItemById } from 'src/app/shared/store/models/app-state.model';
+import { AppState } from 'src/app/shared/store/models/app-state.model';
 import { Contact } from 'src/app/shared/store/models/contact.model';
 
 @Component({
@@ -12,7 +11,7 @@ import { Contact } from 'src/app/shared/store/models/contact.model';
   styleUrls: ['./contact-list.component.scss']
 })
 export class ContactListComponent implements OnInit {
-  contacts$: Observable<Array<Contact>>
+  contacts$: Observable<Contact[]>
 
   constructor(private store: Store<AppState>) { }
 
@@ -20,8 +19,7 @@ export class ContactListComponent implements OnInit {
     this.contacts$ = this.store.select(store => store.contacts);
   }
 
-
-  onSelect(id: string ){
+  onSelect(id: string){
     this.store.dispatch(new SelectContactAction(id))
   }
 }
