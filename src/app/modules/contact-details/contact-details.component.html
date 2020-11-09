@@ -1,0 +1,32 @@
+<div *ngIf="contact$ | async as contact">
+    <label>
+        <span>
+            First Name: {{contact.firstName}}
+        </span>
+    </label>
+
+    <label>
+        <span>
+            Laste Name: {{contact.lastName}}
+        </span>
+        
+    </label>
+
+    <label>
+        <span>
+            Phone: {{contact.phone}}
+        </span>
+    </label>
+
+    <label>
+        <span>
+            Email: {{contact.email}}
+        </span>
+    </label>
+
+    <label>
+        <span>
+            Address: {{contact.address}}
+        </span>
+    </label>
+</div>
