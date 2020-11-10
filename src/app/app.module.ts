@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 import { ContactFormModule } from './modules/contact-form/contact-form.module';
 import { ContactListModule } from './modules/contact-list/contact-list.module';
 import { StoreModule } from '@ngrx/store';
-import { ContactsReducer } from './shared/store/reducers/contacts-list.reducer';
+import { ContactsListReducer } from './shared/store/reducers/contacts-list.reducer';
 import { FormsModule } from '@angular/forms';
 import { SelectContactReducer } from './shared/store/reducers/selected-contact.reducer';
 import { ContactDetailsModule } from './modules/contact-details/contact-details.module';
@@ -20,7 +20,7 @@ import { ContactDetailsModule } from './modules/contact-details/contact-details.
     AppRoutingModule,
     FormsModule,
     StoreModule.forRoot({
-      contacts: ContactsReducer,
+      contacts: ContactsListReducer,
       selectedContactId: SelectContactReducer
     }),
     ContactFormModule,

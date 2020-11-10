@@ -1,9 +1,8 @@
-import { createSelector, State } from '@ngrx/store';
 import { ContactAction, ContactTypes } from '../actions/contact.actions';
 import { Contact } from "../models/contact.model";
 import * as uuid from 'uuid';
 
-const initialState: Array<Contact> = [{
+export const initialState: Contact[] = [{
     id: uuid.v4(),
     firstName: 'name',
     lastName: 'surname',
@@ -12,7 +11,7 @@ const initialState: Array<Contact> = [{
     address: 'some address '
 }];
 
-export function ContactsReducer( state: Array<Contact> = initialState, action: ContactAction){
+export function ContactsListReducer( state: Contact[] = initialState, action: ContactAction){
     switch(action.type){
         case ContactTypes.ADD_CONTACT:
             return [...state, action.payload];
