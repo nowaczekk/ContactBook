@@ -3,7 +3,7 @@ import * as uuid from 'uuid';
 import { AddContactAction } from '../actions/contact.actions';
 import { ContactsListReducer, initialState } from './contacts-list.reducer';
 
-fdescribe('ContactsListReducer', () => {
+describe('ContactsListReducer', () => {
     describe('ContactTypes.ADD_CONTACT', () => {
         it('should add contact to state', () => {
             const contactModel = createContact();
