@@ -1,17 +1,24 @@
-<div>
+<div class="contact-list-container">
     <div class="header-container">
-        <span>
-            First Name
-        </span>
-        <span>
-            Last Name
-        </span>
+        <div>
+            <span>
+                First Name
+            </span>
+        </div>
+        <div>
+            <span>
+                Last Name
+            </span>
+        </div>
     </div>
     <div class="list-content-container">
-        <div *ngFor="let item of contacts$ | async">
-            {{item.firstName}}, {{item.lastName}}
-
-            <button (click)="onSelect(item.id)">select contact</button>
+        <div class="list-item" *ngFor="let contact of contacts$ | async" (click)="onSelect(contact.id)" [ngClass]="{'highlighted-contact': contact.id === selectedContactId}">
+            <div>
+                {{contact.firstName}}
+            </div>
+            <div>
+                {{contact.lastName}}
+            </div>
         </div>
     </div>
 

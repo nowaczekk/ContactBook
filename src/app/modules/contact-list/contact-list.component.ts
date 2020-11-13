@@ -12,6 +12,7 @@ import { Contact } from 'src/app/shared/store/models/contact.model';
 })
 export class ContactListComponent implements OnInit {
   contacts$: Observable<Contact[]>
+  selectedContactId = '';
 
   constructor(private store: Store<AppState>) { }
 
@@ -20,6 +21,7 @@ export class ContactListComponent implements OnInit {
   }
 
   onSelect(id: string){
-    this.store.dispatch(new SelectContactAction(id))
+    this.store.dispatch(new SelectContactAction(id));
+    this.selectedContactId = id
   }
 }

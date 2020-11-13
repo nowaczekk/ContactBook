@@ -1,0 +1,44 @@
+.contact-list-container{
+    padding: 10px;
+}
+
+.header-container{
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    min-height: 40px;
+    line-height: 25px;
+
+    div {
+        padding: 5px;
+        width: 50%;
+    }
+}
+
+.list-content-container{
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+
+    .list-item{
+        display: flex;
+        width: 100%;
+        flex-direction: row;
+        min-height: 40px;
+        line-height: 25px;
+        margin-top: 10px;
+        border: 1px solid grey;
+        border-radius: 3px;
+        background-color: white;
+        box-shadow: 4px 2px 5px grey;
+
+        &.highlighted-contact{
+            background-color: #ded8ce;
+        }
+
+        div {
+            padding: 5px;
+            width: 50%;
+        }
+    }
+}
