@@ -1,5 +1,4 @@
 import { TestBed, async } from '@angular/core/testing';
-import { FormsModule } from '@angular/forms';
 import { RouterTestingModule } from '@angular/router/testing';
 import { AppComponent } from './app.component';
 import { ContactDetailsModule } from './modules/contact-details/contact-details.module';
@@ -25,7 +24,6 @@ describe('AppComponent', () => {
     TestBed.configureTestingModule({
       imports: [
         RouterTestingModule,
-        FormsModule, 
         ContactFormModule,
         ContactDetailsModule,
         ContactListModule

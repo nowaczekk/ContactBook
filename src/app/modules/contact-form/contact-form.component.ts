@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Store } from '@ngrx/store';
 import { AddContactAction } from 'src/app/shared/store/actions/contact.actions';
@@ -8,7 +8,8 @@ import * as uuid from 'uuid';
 @Component({
   selector: 'app-contact-form',
   templateUrl: './contact-form.component.html',
-  styleUrls: ['./contact-form.component.scss']
+  styleUrls: ['./contact-form.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ContactFormComponent implements OnInit {
   contactForm: FormGroup
@@ -25,12 +26,16 @@ export class ContactFormComponent implements OnInit {
     })
   }
 
-  onSave(): void {
+  onSubmit(): void {
     const model = this.contactForm.value;
-    model.id = uuid.v4();
+    model.id = this.generateId();
 
     this.store.dispatch(new AddContactAction(model));
     this.contactForm.reset();
+  }
+
+  generateId(): string{
+      return uuid.v4();
   }
 
 }

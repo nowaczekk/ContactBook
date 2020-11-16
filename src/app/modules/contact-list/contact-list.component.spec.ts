@@ -37,4 +37,12 @@ describe('ContactListComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should display first and last name', ()=> {
+    let firstName = fixture.nativeElement.querySelector('.list-item div:first-child').innerText;
+    let lastName = fixture.nativeElement.querySelector('.list-item div:last-child').innerText;
+
+    expect(firstName).toEqual(initialState.contacts[0].firstName);
+    expect(lastName).toEqual(initialState.contacts[0].lastName);
+  });
 });
