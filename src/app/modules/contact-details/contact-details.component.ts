@@ -1,8 +1,9 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
-import { AppState, getSelectedContact } from 'src/app/shared/store/models/app-state.model';
+import { AppState } from 'src/app/shared/store/models/app-state.model';
 import { Contact } from 'src/app/shared/store/models/contact.model';
+import { getSelectedContact } from 'src/app/shared/store/selectors/selected-contact-selector';
 
 @Component({
   selector: 'app-contact-details',

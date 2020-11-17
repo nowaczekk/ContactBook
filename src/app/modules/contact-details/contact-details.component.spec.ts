@@ -1,20 +1,18 @@
 import { CommonModule } from '@angular/common';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import * as uuid from 'uuid';
 import { provideMockStore } from '@ngrx/store/testing';
-
 import { ContactDetailsComponent } from './contact-details.component';
 
 describe('ContactDetailsComponent', () => {
   const initialState = { 
     contacts: [{
-      id: uuid.v4(),
+      id: '00000000-0000-0000-0000-000000000000',
       firstName: 'testName',
       lastName: 'testSurname',
       phone: '333-333-333',
       email: 'example@temporary.tmp',
       address: 'home address'}],
-    selectedContactId: null 
+    selectedContactId: '00000000-0000-0000-0000-000000000000' 
   };
   let component: ContactDetailsComponent;
   let fixture: ComponentFixture<ContactDetailsComponent>;
@@ -22,7 +20,9 @@ describe('ContactDetailsComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [ ContactDetailsComponent ],
-      imports: [CommonModule],
+      imports: [
+        CommonModule
+      ],
       providers: [
         provideMockStore({ initialState })
       ]
@@ -38,5 +38,11 @@ describe('ContactDetailsComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('should display firstName', () => {
+    let firstName = fixture.nativeElement.querySelector('.details-container div label span').innerText;
+    
+    expect(firstName).toEqual(`First Name: ${initialState.contacts[0].firstName}`);
   });
 });
